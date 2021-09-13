@@ -14,7 +14,7 @@ After that, you can use these functions in that property.
 
 
 function autoPos(L, sPosX, sPosY) {
-    // description: effectively parents layer to whatever corner of input layer
+    // description: effectively parents layer to whichever corner of input layer
     // property target: transform>position
     // usage:  autoPos(layer = L, x = "middle", y = "middle");
     let p = L.toComp([0,0,0]),
