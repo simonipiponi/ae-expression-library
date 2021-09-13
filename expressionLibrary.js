@@ -1,14 +1,24 @@
-// get expression Library
-    // eval(footage("expressionLibrary.txt").sourceText); // get expression library
+/*
+After Effects Expressions Library
+Author: Simon Heimbuchner, 2021
+
+Description:
+Use this expression library either to copy and paste code or as an actual embedded after effects code library.
+To include the library in your code, simply save as .txt, 
+drag it into your project and reference it in each property using the following code:
+
+    eval(footage("expressionLibrary.txt").sourceText); // get expression library
+
+After that, you can use these functions in that property.
+*/
 
 
-    // autoPos(layer = L, x = "middle", y = "middle");
 function autoPos(L, sPosX, sPosY) {
-    // input: Layer object, X ["top","middle","right"], Y ["top","middle","bottom"]
-    // property target: position
+    // description: effectively parents layer to whatever corner of input layer
+    // property target: transform>position
+    // usage:  autoPos(layer = L, x = "middle", y = "middle");
     let p = L.toComp([0,0,0]),
         r = L.sourceRectAtTime(time);
-    
     switch(sPosX) {
             case "left":
                 x = p[0]+r.left;
@@ -31,16 +41,15 @@ function autoPos(L, sPosX, sPosY) {
                 y = p[1]+r.top+r.height;
                 break;
     }	
-
     return [x,y];
 }
 
-    // autoPosRect(x = "middle", y = "top");
+    
 function autoPosRect(sPosX, sPosY) {
-    // input: X ["top","middle","right"], Y ["top","middle","bottom"]
-    // property target: rectangle position
+    // description: moves anchor point of a rectangle to one of its corners
+    // property target: shape layer>rectangle>position
+    // usage: autoPosRect(x = "middle", y = "top");
     let s = thisProperty.propertyGroup().size;
-
     switch(sPosX) {
             case "left":
                 x = s[0]/2;
