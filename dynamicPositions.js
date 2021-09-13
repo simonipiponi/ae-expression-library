@@ -1,5 +1,5 @@
 /*
-After Effects Expressions Library
+Dynamic Positions
 Author: Simon Heimbuchner, 2021
 
 Description:
