@@ -44,7 +44,6 @@ function autoPos(L, sPosX, sPosY) {
     return [x,y];
 }
 
-    
 function autoPosRect(sPosX, sPosY) {
     // description: moves anchor point of a rectangle to one of its corners
     // property target: shape layer>rectangle>position
@@ -74,3 +73,13 @@ function autoPosRect(sPosX, sPosY) {
     }	
     return [x, y]
 }
+
+function autoSizeRect(L) {
+    // description: returns size of element
+    // property target: shape layer>rectangle>size
+    // usage: autoSizeRect(L = thisComp.layer("name"))
+    let rect    =   L.sourceRectAtTime(time),
+	    padding =   100;
+    return [rect.width+padding,rect.height+padding]
+}
+
