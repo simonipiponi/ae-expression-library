@@ -74,8 +74,28 @@ function autoPosRect(sPosX, sPosY) {
     return [x, y]
 }
 
+function autoScaleToFitComp() {
+    // description: fit layer size to comp
+	// property target: scale
+    // usage: autoScaleToFitComp()
+	let fH = thisLayer.source.height,
+		fW = thisLayer.source.width,
+		cH = thisComp.height,
+		cW = thisComp.width;
+
+	// stretch width and height to comp
+	let x = cW/fW*100,
+		y = cH/fH*100;
+
+	// fit to original aspect ration
+	if(x>y) x=cH/fH*100;
+	if(y>x) y=cW/fW*100;
+
+	return [x,y];
+}
+
 function autoSizeRect(L) {
-    // description: returns size of element
+    // description: sets rectangle the same size as bounding box of layer
     // property target: shape layer>rectangle>size
     // usage: autoSizeRect(L = thisComp.layer("name"))
     let rect    =   L.sourceRectAtTime(time),
