@@ -25,13 +25,13 @@ txt; // return
 
 ## Set Number Format
 
-> Requires:
-> - Dropdown "Commas"
->   - 0
->   - 1
->   - 2
->   - ...
-> - Checkbox "Punctuation"
+<details>
+<summary>Required Effects</summary>
+
+* Dropdown Control "Commas": `0, 1, 2, 3, 4`
+* Dropdown Control "Decimals": `Yes, No`
+
+</details>
 
 ```javascript
 function setNumberFormat(txt) {
@@ -63,12 +63,12 @@ function setNumberFormat(txt) {
 
 ## Set Prefix
 
-> Requires:
-> - Dropdown "Prefix"
->   - None
->   - String1
->   - String2
->   - Set in Expression
+<details>
+<summary>Required Effects</summary>
+
+* Dropdown Control "Prefix": `None, String1, String2, Set in Expression`
+
+</details>
 ```javascript
 // input: text string // output: text string
 
