@@ -28,30 +28,35 @@ o; // output
 ![Comp 6](https://github.com/simonheimbuchner/ae-expression-library/assets/20266941/df2df3b1-cab0-4894-998e-db3446d67f8e)
 
 
-### Custom Line Breaks in Text Layer
+### Custom Line Breaks in Text Layer (When using Monospace Font)
 
 When dealing with Text Boxes in After Effects, lines can break visually, but won't actually break in code. Which means that a Text Box text can't be split by `\r`, which for some presets is quite useful. Also, Text Boxes can't be resized programatically. This adds a Text Box functionality to an ordinary string of text—with a couple of variables you could hook up to Sliders.
+Works only with Monospace Fonts, since the width is determined by the number of characters.
 
 ```javascript
 // custom line break 
 
-// settings
-let amountOfLines = 4; // how many line breaks are possible
-let breakTolerance = 5; // how far to look for whitespaces
-let positionToBreakAt = 40; // after how many characters to break
+posterizeTime(0); // only calculate once
 
+// line break behaviour
+const  	amountOfLines = 99, // how many line breaks are possible
+		breakTolerance = 5, // how far to look for whitespaces
+		positionToBreakAt = effect("Slider Control")("Slider"), // after how many characters to break
+		L = thisLayer; // what layer's sourceText to reference
 
-let str = thisComp.layer("Untertitel Text").text.sourceText;
-let strArray = str.split("");
+let str = L.text.sourceText,
+	strArray = str.split("");
 for(k=0;k<amountOfLines-1;k++){
-let breakPosition;
+	let breakPosition;
 	for (i=0;i<strArray.length; i++) {
 		if(i>(positionToBreakAt*(k+1)-breakTolerance) && strArray[i]==" ") {
 			breakPosition = i;
 			break;				
 		}
 	}
-strArray.splice(breakPosition+1,0,"\r");
+	strArray.splice(breakPosition+1,0,"\r");
+}
+strArray.join("").trim();
 }
 strArray.join("").trim();
 
