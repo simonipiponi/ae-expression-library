@@ -28,11 +28,13 @@ o; // output
 ![Comp 6](https://github.com/simonheimbuchner/ae-expression-library/assets/20266941/df2df3b1-cab0-4894-998e-db3446d67f8e)
 
 
-### Custom Line Breaks in Text Layer (When using Monospace Font)
+### Dynamic Text Paragraphs (/Custom Line Breaks)
 
 When dealing with Text Boxes in After Effects, lines can break visually, but won't actually break in code. Which means that a Text Box text can't be split by `\r`, which for some presets is quite useful. Also, Text Boxes can't be resized programatically. This adds a Text Box functionality to an ordinary string of text—with a couple of variables you could hook up to Sliders.
 Works only with Monospace Fonts, since the width is determined by the number of characters.
+>Works only with Monospace Fonts
 
+<sub>Text>Sourcetext</sub>
 ```javascript
 // custom line break 
 
@@ -58,6 +60,8 @@ for(k=0;k<amountOfLines-1;k++){
 }
 strArray.join("").trim();
 }
-strArray.join("").trim();
 
 ```
+
+![Comp 1](https://github.com/simonipiponi/ae-expression-library/assets/20266941/6763a197-5558-4144-bcaf-4c8bc7adccb0)
+
