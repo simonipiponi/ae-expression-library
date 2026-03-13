@@ -43,7 +43,7 @@ posterizeTime(0); // only calculate once
 // line break behaviour
 const  	amountOfLines = 99, // how many line breaks are possible
 		breakTolerance = 5, // how far to look for whitespaces
-		positionToBreakAt = effect("Slider Control")("Slider"), // after how many characters to break
+		positionToBreakAt = effect("Character Break Index")(1), // after how many characters to break
 		L = thisLayer; // what layer's sourceText to reference
 
 let str = L.text.sourceText,
@@ -59,7 +59,7 @@ for(k=0;k<amountOfLines-1;k++){
 	strArray.splice(breakPosition+1,0,"\r");
 }
 strArray.join("").trim();
-}
+
 
 ```
 
